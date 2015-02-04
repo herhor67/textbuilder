@@ -610,9 +610,9 @@ command /napisz [<text>]:
 			loop {_line%loop-number%::*}:
 				{_loc} is not set:
 					set {_loc} to location of block (8 - loop-number) meters above player
-			loop-value is "░":
-				set block at {_loc} to {@bloktla}
-			loop-value is "▓":
-				set block at {_loc} to {@blok}
-			add 1 to z-coordinate of {_loc}
-		clear {_loc}
+				loop-value is "░":
+					set block at {_loc} to {@bloktla}
+				loop-value is "▓":
+					set block at {_loc} to {@blok}
+				add 1 to z-coordinate of {_loc}
+			clear {_loc}
