@@ -22,17 +22,17 @@ command /napisz [<text>]:
 	permission: pisanie.z.blokow
 	trigger:
 #================={ Diakrytyki górne }=================#
-		set {_1} to arg
-		set {_2} to arg
-		set {_3} to arg
+		set {_1} to "░,%arg%"
+		set {_2} to "░,%arg%"
+		set {_3} to "░,%arg%"
 #================={ Normalne litery }=================#
-		set {_4} to arg
-		set {_5} to arg
-		set {_6} to arg
-		set {_7} to arg
-		set {_8} to arg
+		set {_4} to "░,%arg%"
+		set {_5} to "░,%arg%"
+		set {_6} to "░,%arg%"
+		set {_7} to "░,%arg%"
+		set {_8} to "░,%arg%"
 #================={ Diakrytyki dolne }=================#
-		set {_9} to arg
+		set {_9} to "░,%arg%"
 #======================================={ A }=======================================#
 		replace all "a" in {_1} with "░,░,░,░,"
 		replace all "a" in {_2} with "░,░,░,░,"
@@ -557,13 +557,13 @@ command /napisz [<text>]:
 #======================================={ ) }=======================================#
 		replace all ")" in {_1} with "░,░,░,"
 		replace all ")" in {_2} with "░,░,░,"
-		replace all ")" in {_3} with "░,▓,░,"
-		replace all ")" in {_4} with "░,░,▓,"
-		replace all ")" in {_5} with "░,░,▓,"
-		replace all ")" in {_6} with "░,░,▓,"
-		replace all ")" in {_7} with "░,░,▓,"
-		replace all ")" in {_8} with "░,░,▓,"
-		replace all ")" in {_9} with "░,▓,░,"
+		replace all ")" in {_3} with "▓,░,░,"
+		replace all ")" in {_4} with "░,▓,░,"
+		replace all ")" in {_5} with "░,▓,░,"
+		replace all ")" in {_6} with "░,▓,░,"
+		replace all ")" in {_7} with "░,▓,░,"
+		replace all ")" in {_8} with "░,▓,░,"
+		replace all ")" in {_9} with "▓,░,░,"
 #======================================={ - }=======================================#
 		replace all "-" in {_1} with "░,░,░,"
 		replace all "-" in {_2} with "░,░,░,"
@@ -594,19 +594,30 @@ command /napisz [<text>]:
 		replace all ":" in {_7} with "▓,░,"
 		replace all ":" in {_8} with "░,░,"
 		replace all ":" in {_9} with "░,░,"
+#======================================={ / }=======================================#
+		replace all "/" in {_1} with "░,░,░,"
+		replace all "/" in {_2} with "░,░,░,"
+		replace all "/" in {_3} with "░,▓,░,"
+		replace all "/" in {_4} with "░,▓,░,"
+		replace all "/" in {_5} with "░,▓,░,"
+		replace all "/" in {_6} with "▓,░,░,"
+		replace all "/" in {_7} with "▓,░,░,"
+		replace all "/" in {_8} with "▓,░,░,"
+		replace all "/" in {_9} with "░,░,░,"
+#======================================={ = }=======================================#
+		replace all "=" in {_1} with "░,░,░,░,░,"
+		replace all "=" in {_2} with "░,░,░,░,░,"
+		replace all "=" in {_3} with "░,░,░,░,░,"
+		replace all "=" in {_4} with "░,░,░,░,░,"
+		replace all "=" in {_5} with "▓,▓,▓,▓,░,"
+		replace all "=" in {_6} with "░,░,░,░,░,"
+		replace all "=" in {_7} with "▓,▓,▓,▓,░,"
+		replace all "=" in {_8} with "░,░,░,░,░,"
+		replace all "=" in {_9} with "░,░,░,░,░,"
 
 #======================================={  }=======================================#
-		set {_line1::*} to {_1} split at ","
-		set {_line2::*} to {_2} split at ","
-		set {_line3::*} to {_3} split at ","
-		set {_line4::*} to {_4} split at ","
-		set {_line5::*} to {_5} split at ","
-		set {_line6::*} to {_6} split at ","
-		set {_line7::*} to {_7} split at ","
-		set {_line8::*} to {_8} split at ","
-		set {_line9::*} to {_9} split at ","
-#======================================={  }=======================================#
 		loop 9 times:
+			set {_line%loop-number%::*} to {_%loop-number%} split at ","
 			loop {_line%loop-number%::*}:
 				{_loc} is not set:
 					set {_loc} to location of block (8 - loop-number) meters above player
