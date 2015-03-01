@@ -1,0 +1,9 @@
+options:
+	blok: glowstone
+	bloktla: air
+
+command /napisz [<text>] [<itemtype="{@blok}">] [<itemtype="{@bloktla}">]:
+	permission: pisanie.z.blokow
+	trigger:
+		set {_dir} to direction of player
+		build "%arg 1%" using arg 2 and arg 3 at player in dir {_dir}
