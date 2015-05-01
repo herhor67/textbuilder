@@ -6,21 +6,6 @@ options:
 command /napisz <text> [<itemtype={@blok}>] [<itemtype={@bloktla}>]:
 	permission: pisanie.z.blokow
 	trigger:
-		facing of player is north:
-			set {_dir} to north
-		else if facing of player is south:
-			set {_dir} to south
-		else if facing of player is east:
-			set {_dir} to east
-		else if facing of player is west:
-			set {_dir} to west
-		else if facing of player is northwest:
-			set {_dir} to northwest
-		else if facing of player is northeast:
-			set {_dir} to northeast
-		else if facing of player is southwest:
-			set {_dir} to southwest
-		else if facing of player is southeast:
-			set {_dir} to southeast
+		set {_dir} to facing of player
 		build "%arg 1%" using font normal, arg 2 and arg 3 at player in dir {_dir}
 		send "&aTekst &l%arg 1% &azostał zbudowany!"
